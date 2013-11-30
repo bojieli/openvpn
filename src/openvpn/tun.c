@@ -4036,7 +4036,7 @@ netsh_command (const struct argv *a, int n)
 	return;
       openvpn_sleep (4);
     }
-  msg (M_FATAL, "NETSH: command failed");
+  msg (M_WARN, "NETSH: command failed");
 }
 
 void
