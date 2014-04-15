@@ -914,11 +914,11 @@ openvpn_execve (const struct argv *a, const struct env_set *es, const unsigned i
 }
 
 WCHAR *
-wide_string (const char* ansi, struct gc_arena *gc)
+wide_string (const char* utf8, struct gc_arena *gc)
 {
-  int n = MultiByteToWideChar (CP_ACP, 0, ansi, -1, NULL, 0);
+  int n = MultiByteToWideChar (CP_UTF8, 0, utf8, -1, NULL, 0);
   WCHAR *ucs16 = gc_malloc (n * sizeof (WCHAR), false, gc);
-  MultiByteToWideChar (CP_ACP, 0, ansi, -1, ucs16, n);
+  MultiByteToWideChar (CP_UTF8, 0, utf8, -1, ucs16, n);
   return ucs16;
 }
 
